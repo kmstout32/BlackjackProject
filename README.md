@@ -3,6 +3,6 @@
 # Description
 
 #Technologies Used
-	<h3> Java, eclipse, OOP <h3>
+Java, eclipse, OOP
 # Lessons Learned
-# BlackjackProject
+
