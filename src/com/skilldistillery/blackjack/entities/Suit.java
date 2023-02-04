@@ -16,9 +16,9 @@ public enum Suit {
 		this.name = cardName;
 	}
 
-	public String getCardName() {
-		return this.name;
-	}
+//	public String getCardName() {
+//		return this.name;
+//	}
 
 //	toString method to output the name of each/any card
 	@Override // the override will show the simple string of the constants

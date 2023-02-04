@@ -7,16 +7,21 @@ public class Card {
 	private Rank rank;
 	private Suit suit;
 	
-//	What gives initial values??
+	
+//	Add values of card
+	public int getValue() {
+		return rank.getValue();
+		
+	}
 	public Card( ) {
 		
 	}
-	
+//	Used to assign the field variables
 	public Card(Suit aSuit, Rank aRank) {
 		suit = aSuit;
 		rank = aRank;
 	}
-
+//Getters & Setters
 	public Rank getRank() {
 		return rank;
 	}
@@ -32,10 +37,10 @@ public class Card {
 	public void setSuit(Suit suit) {
 		this.suit = suit;
 	}
-
+//Program toString for cards
 	@Override
 	public String toString() {
-		return "Card [rank=" + rank + ", suit=" + suit + "]";
+		return "Card: " + getRank() + getSuit() + " || " +rank.getValue()  ;
 	}
 
 	@Override
@@ -54,5 +59,7 @@ public class Card {
 		Card other = (Card) obj;
 		return rank == other.rank && suit == other.suit;
 	}
+
+	
 	
 }

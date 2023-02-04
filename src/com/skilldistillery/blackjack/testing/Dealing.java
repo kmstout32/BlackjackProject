@@ -5,6 +5,9 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import com.skilldistillery.blackjack.entities.Card;
+import com.skilldistillery.blackjack.entities.Deck;
+
 public class Dealing {
 
   public static void main(String[] args) {
@@ -20,7 +23,7 @@ public class Dealing {
     
     try {
       int numCards = sc.nextInt();
-      if(numCards > 52) {
+      if(numCards >52) {
         throw new InputMismatchException();
       }
       
