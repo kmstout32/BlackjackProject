@@ -13,7 +13,7 @@ public class BlackjackApp {
 	Player player = new Player();
 	Scanner sc = new Scanner(System.in);
 	Dealer dealer = new Dealer();
-	
+
 	Deck deck = new Deck();
 
 //all of the logic will happen in this class
@@ -38,35 +38,37 @@ public class BlackjackApp {
 		dealer.shuffleDeck(); // dealer starts by shuffling
 		System.out.println("Enter your name:"); // Asks for the players name
 		player.setName(sc.next()); // Saves users name into the player object
-		diplayPlayerCards(); // program jumps to next method
+		startGame(); // program jumps to next method
 	}
 
-	public void diplayPlayerCards() {
-
+	public void startGame() {
 		System.out.println("****************************************************************");
 		System.out.println("Hello " + player.getName() + ", Welcome to the Blackjack Terminal!");
 		System.out.println("****************************************************************");
-		System.out.println(player.getName() + "'s hand: ");
-		player.setHand(new BlackJackHand(dealer.dealCards()));
-		player.printPlayerHand();
-		System.out.println(player.getHand().getHandValue());
-		displayDealerCards();
+		displayPlayerCards();
+
 	}
 
-	public void displayDealerCards() {
-
+	public void displayPlayerCards() {
+//Player receives a cards -- 
+		System.out.println(player.getName() + "'s hand: ");
+		player.setHand(new BlackJackHand(dealer.dealCard()));
+		player.printPlayerHand();
+		System.out.println(player.getHand().getHandValue());
+//Dealer receives a cards		
 		System.out.println("");
 		System.out.println(dealer.getName() + "'s hand: ");
-		// get hand converts the hand to integer
-		dealer.setHand(new BlackJackHand(dealer.dealCards()));
+// get hand converts the hand to integer
+		dealer.setHand(new BlackJackHand(dealer.dealCard()));
 		dealer.showOneCard();
+		System.out.println("*********************************");
 		interactWithPlayer(player.getHand().getHandValue(), sc);
 	}
 
 	public void interactWithPlayer(int cardVal, Scanner choice) {
 		String pName = player.getName();
 		if (cardVal < 10 == true) {
-			System.out.println( pName +", would you like to hit?");
+			System.out.println(pName + ", would you like to hit?");
 		} else if (cardVal > 5 && cardVal < 21) {
 			System.out.println(pName + ", would you like to 1) hit or 2) stay");
 		} else if (cardVal == 21) {
@@ -79,7 +81,7 @@ public class BlackjackApp {
 		} while (!userChoice.equalsIgnoreCase("Hit") && !userChoice.equalsIgnoreCase("Stay"));
 		if (userChoice.equalsIgnoreCase("Hit")) {
 			player.hit(deck);
-			} else { // if stay the dealer will hit if card val is <17
+		} else { // if stay the dealer will hit if card val is <17
 			System.out.println(" ");
 			evaluateCards();
 		}

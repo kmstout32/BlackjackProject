@@ -16,8 +16,8 @@ public class Dealer extends Player {
 		deck.shuffle();
 	}
 
-//Dealer must deal cards
-	public List<Card> dealCards() {
+//Dealer must deal cards one at a time
+	public List<Card> dealCard() {
 		List<Card> cards = new ArrayList<>();
 
 		for (int i = 0; i < 2; i++) {
@@ -46,10 +46,12 @@ public class Dealer extends Player {
 		System.out.println(hand);
 		System.out.println(hand.getHandValue());
 	}
-
+//Dealer needs to deal another card from the deck
+	
 //Dealer must hit if value is under 17
-	public static void hit(Deck deck) {
-		
+	public void hit(Deck deck) {
+		Card hitCard =  dealCard();
+	
 	}
 //Dealer must stay
 

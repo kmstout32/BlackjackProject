@@ -15,12 +15,12 @@ public class Player extends Person{
 
 	
 //create a ctor to create a different player
+//this.super is instantiating the abstract class
 	public Player(Hand hand){
 		super.getName();
-		this.hand = hand;
 	
 	}
-	
+//Sending the 
 	public Player(String name, Hand hand){
 		this.name = name;
 		this.hand = hand;
@@ -57,12 +57,11 @@ public class Player extends Person{
 		this.hand = hand;
 	}
 	
-	public void hit(Deck deck) {
-		this.bjHand.takeCardFromDeck(deck);//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		System.out.println(this.name + " gets a card");
+	public void hit() {
+		System.out.println("Hit");
 	}
-
-	
-	
+	public void stay() {
+		System.out.println("Stay");
+	}
 	
 }
