@@ -58,18 +58,33 @@ public class BlackjackApp {
 	//get hand converts the hand to integer
 		dealer.setHand(new BlackJackHand(dealer.dealCards()));
 		dealer.showOneCard();
-		interactWithPlayer(player.getHand().getHandValue());
+		interactWithPlayer(player.getHand().getHandValue(), sc);
 	}
-	
-	public void interactWithPlayer(int cardVal) {
+
+	public void interactWithPlayer(int cardVal, Scanner choice) {
 
 		if (cardVal < 10) {
 			System.out.println("Would you like to hit?");
 		} else if (cardVal > 13 && cardVal < 21) {
-			System.out.println("Would you like to hit or stay");
+			System.out.println("Would you like to 1) hit or 2) stay");
 		} else if (cardVal == 21 ) {
 			System.out.println("Blackjack! Nice job!");
-
 		}
+		String userChoice = " ";
+		do {
+			userChoice = choice.next();
+			
+			}while(!userChoice.equalsIgnoreCase("Hit") &&!userChoice.equalsIgnoreCase("Stay"));
+		if(userChoice.equalsIgnoreCase("Hit")) {
+			player.hit();
+		}
+	
+		
+		
+	}
+
+	private void String(Scanner input) {
+		// TODO Auto-generated method stub
+		
 	}
 }

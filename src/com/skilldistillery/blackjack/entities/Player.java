@@ -55,12 +55,10 @@ public class Player extends Person{
 	
 	//behaviors of the player
 
-//	public void hit() {
-//		boolean hit;
-//		if(hit = true) {
-//			Dealer.hit();
+	public void hit() {
+			System.out.println("Made it!");
 //			
-//		}
+		}
 //	}
 ////	Make the decision
 	public void decision() {
