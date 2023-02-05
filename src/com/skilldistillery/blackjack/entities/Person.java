@@ -1,24 +1,24 @@
 package com.skilldistillery.blackjack.entities;
 
-public abstract class Person {
-//I had to add an abstract class bc Player and Dealer have shared data
+public class Person {
 	
 //	
-	private BlackJackHand hand;
+	protected BlackJackHand bjHand;
 	private String name;
 
 // creation of the person
 	public Person() {
-		this.hand = new BlackJackHand();
+		this.bjHand = new BlackJackHand();
 		this.name = " ";
 	}
+	
 
 	public Hand getHand() {
-		return hand;
+		return bjHand;
 	}
 
 	public void setHand(Hand hand) {
-		this.hand = (BlackJackHand) hand;
+		this.bjHand = (BlackJackHand) hand;
 	}
 
 	public String getName() {

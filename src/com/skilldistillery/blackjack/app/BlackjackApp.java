@@ -41,19 +41,35 @@ public class BlackjackApp {
 	}
 
 	public void diplayPlayerCards() {
+		
 		System.out.println("****************************************************************");
 		System.out.println("Hello " + player.getName() + ", Welcome to the Blackjack Terminal!");
 		System.out.println("****************************************************************");
 		System.out.println(player.getName()+"'s cards" );
 		player.setHand(new BlackJackHand(dealer.dealCards()));
-		System.out.println(player.getHand().getHandValue() + "-Score");//get hand converts the hand to integer
+		player.printPlayerHand();
+		System.out.println(player.getHand().getHandValue());
 		displayDealerCards();
 	}
 	public void displayDealerCards() {
+		
 		System.out.println("");
 		System.out.println(dealer.getName()+"'s cards" );
 	//get hand converts the hand to integer
 		dealer.setHand(new BlackJackHand(dealer.dealCards()));
 		dealer.showOneCard();
+		interactWithPlayer(player.getHand().getHandValue());
+	}
+	
+	public void interactWithPlayer(int cardVal) {
+
+		if (cardVal < 10) {
+			System.out.println("Would you like to hit?");
+		} else if (cardVal > 13 && cardVal < 21) {
+			System.out.println("Would you like to hit or stay");
+		} else if (cardVal == 21 ) {
+			System.out.println("Blackjack! Nice job!");
+
+		}
 	}
 }

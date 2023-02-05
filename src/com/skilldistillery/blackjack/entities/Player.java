@@ -26,8 +26,11 @@ public class Player extends Person{
 	}
 	public void printPlayerHand() {
 //		for (dataType name : collectionOfDataType) {
-		for (iterable_type iterable_element : iterable) {
-			
+		for (Card card : hand.cards) {
+//			hand.cards.get(0).getValue()
+//			card.getValue();
+			System.out.println(card );
+		
 		}
 	}
 

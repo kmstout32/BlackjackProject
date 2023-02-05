@@ -1,6 +1,5 @@
 package com.skilldistillery.blackjack.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 //This class cannot create or instantiate a new hand but blackjack hand can
 public abstract class Hand {
@@ -19,8 +18,8 @@ public abstract class Hand {
 		cards.add(card.remove(getHandValue()));
 	}
 //This method will clear the game 	
-	public void clear() {
-		
+	public void clear(List<Card>card) {
+		cards.removeAll(card);
 	}
 //This method will retrieve the total value of cards 
 	public abstract int getHandValue();
@@ -38,4 +37,5 @@ public abstract class Hand {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 }

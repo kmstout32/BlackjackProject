@@ -35,25 +35,29 @@ public class Dealer extends Player {
 //	The two lines below are identical
 //			card.getValue();
 //			hand.cards.get(i).getValue();
-//			"Card: " + getRank() + getSuit() + " || " +rank.getValue() 
+//	"Card: " + getRank() + getSuit() + " || " +rank.getValue() 
 //			this is what happens when I call card ^^^
 			System.out.println(card);
-
 		}
 	}
 
 	// Dealer must ask player (hit or stay)
-	public void interactWithPlayer(int cardVal) {
-
-		if (cardVal < 10) {
-			System.out.println("Would you like to hit?");
-		} else if (cardVal > 13 && cardVal < 21) {
-			System.out.println("Would you like to hit or stay");
-		} else if (hand.isBlackjack(cardVal)) {
-			System.out.println("Blackjack! Nice job!");
-
-		}
-	}
+//	
+	
+	
+	
+	
+//	public void interactWithPlayer(int cardVal) {
+//
+//		if (cardVal < 10) {
+//			System.out.println("Would you like to hit?");
+//		} else if (cardVal > 13 && cardVal < 21) {
+//			System.out.println("Would you like to hit or stay");
+//		} else if (cardVal == 21 ) {
+//			System.out.println("Blackjack! Nice job!");
+//
+//		}
+//	}
 //Dealer must hit
 //	public static void hit() {
 //		
