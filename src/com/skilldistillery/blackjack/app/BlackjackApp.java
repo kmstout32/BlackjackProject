@@ -6,13 +6,14 @@ import com.skilldistillery.blackjack.entities.BlackJackHand;
 import com.skilldistillery.blackjack.entities.Card;
 import com.skilldistillery.blackjack.entities.Dealer;
 import com.skilldistillery.blackjack.entities.Deck;
+import com.skilldistillery.blackjack.entities.Hand;
 import com.skilldistillery.blackjack.entities.Player;
 
 public class BlackjackApp {
 	Player player = new Player();
 	Scanner sc = new Scanner(System.in);
 	Dealer dealer = new Dealer();
-	Card card = new Card();
+	
 	Deck deck = new Deck();
 
 //all of the logic will happen in this class
@@ -45,7 +46,7 @@ public class BlackjackApp {
 		System.out.println("****************************************************************");
 		System.out.println("Hello " + player.getName() + ", Welcome to the Blackjack Terminal!");
 		System.out.println("****************************************************************");
-		System.out.println(player.getName() + "'s cards");
+		System.out.println(player.getName() + "'s hand: ");
 		player.setHand(new BlackJackHand(dealer.dealCards()));
 		player.printPlayerHand();
 		System.out.println(player.getHand().getHandValue());
@@ -55,7 +56,7 @@ public class BlackjackApp {
 	public void displayDealerCards() {
 
 		System.out.println("");
-		System.out.println(dealer.getName() + "'s cards");
+		System.out.println(dealer.getName() + "'s hand: ");
 		// get hand converts the hand to integer
 		dealer.setHand(new BlackJackHand(dealer.dealCards()));
 		dealer.showOneCard();
@@ -63,13 +64,13 @@ public class BlackjackApp {
 	}
 
 	public void interactWithPlayer(int cardVal, Scanner choice) {
-
+		String pName = player.getName();
 		if (cardVal < 10 == true) {
-			System.out.println("Would you like to hit?");
-		} else if (cardVal > 13 && cardVal < 21) {
-			System.out.println("Would you like to 1) hit or 2) stay");
+			System.out.println( pName +", would you like to hit?");
+		} else if (cardVal > 5 && cardVal < 21) {
+			System.out.println(pName + ", would you like to 1) hit or 2) stay");
 		} else if (cardVal == 21) {
-			System.out.println("Blackjack! Nice job!");
+			System.out.println("Blackjack! Nice job, " + pName + "!");
 		}
 		String userChoice = " ";
 		do {
@@ -77,48 +78,46 @@ public class BlackjackApp {
 
 		} while (!userChoice.equalsIgnoreCase("Hit") && !userChoice.equalsIgnoreCase("Stay"));
 		if (userChoice.equalsIgnoreCase("Hit")) {
-			player.getsACard(card);
-		} else { //if stay the dealer will hit if card val is <17
+			player.hit(deck);
+			} else { // if stay the dealer will hit if card val is <17
 			System.out.println(" ");
 			evaluateCards();
 		}
-		
 
 	}
-	public void evalDealerCards() {
-			System.out.println(" Dealer Hits");
-			
-			
-		}
-	
+
+//	public void evalDealerCards(Dealer dealer, Hand hand) {
+//
+//		if (dealer.getHand().getHandValue() < 17) {
+//			System.out.println(" Dealer Hits");
+//			dealer.hit(deck);
+//		}
+//	}
 
 	public void evaluateCards() {
-//			then the dealer will hit 
-		
+
 		System.out.println("Dealer's card's ");
 		dealer.showHand();
 //		assigned each players cardValue sum to a local variable & scope purposes
 		int playerScore = player.getHand().getHandValue();
-		int dealerScore =  dealer.getHand().getHandValue();
-		if (dealerScore < 17) {
-		}
+		int dealerScore = dealer.getHand().getHandValue();
 		System.out.println("************************");
-		System.out.println("* Your Score-> " + playerScore);
+		System.out.println("* Score-> " + playerScore);
 		System.out.println("* Dealer's Score->" + dealerScore);
 		System.out.println("************************");
-		
+
 		if (playerScore > dealerScore) {
 			System.out.println("YOU WON! GO GET THAT MONEY HONEY!!");
-		} else if (playerScore > 21){
+		} else if (playerScore > 21) {
 			System.out.println("BUSTED!");
 		} else if (dealerScore > playerScore) {
 			System.out.println("YOU LOSE BOOBOO!");
-		}else if (dealerScore > 21) {
+		} else if (dealerScore > 21) {
 			System.out.println("Dealer Busted...YOU WIN!");
-		}else if (dealerScore == playerScore) {
+		} else if (dealerScore == playerScore) {
 			System.out.println("It's a tie");
-			
+
 		}
-			
+
 	}
 }

@@ -6,7 +6,8 @@ public class Player extends Person{
 //attributes- what things describe a player(what should they have)
 //	each player has a name and a hand of cards
 	private String name;
-	protected Hand hand;
+	protected Hand hand = new BlackJackHand();
+	
 	
 	public Player() {
 		
@@ -26,14 +27,16 @@ public class Player extends Person{
 	}
 	public void printPlayerHand() {
 //		for (dataType name : collectionOfDataType) {
-		for (Card card : hand.cards) {
+		for (Card card : hand.hand) {
 //			hand.cards.get(0).getValue()
 //			card.getValue();
 			System.out.println(card );
 		
 		}
 	}
-	
+	public void addCard(BlackJackHand hand) {
+
+	}
 
 	public String getName() {
 		return name;
@@ -54,12 +57,10 @@ public class Player extends Person{
 		this.hand = hand;
 	}
 	
-	//behaviors of the player
-
-	public void getsACard(Card card) {
-		this.bjHand.drawCard(null);
+	public void hit(Deck deck) {
+		this.bjHand.takeCardFromDeck(deck);//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		System.out.println(this.name + " gets a card");
 	}
-		
 
 	
 	

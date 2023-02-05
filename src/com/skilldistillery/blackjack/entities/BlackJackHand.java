@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlackJackHand extends Hand {
-	private Dealer dealer;
-	private Player player;
 	
 //no arg ctor - someone else might need it for a different purpose
 	public BlackJackHand() {
@@ -14,7 +12,7 @@ public class BlackJackHand extends Hand {
 
 	public BlackJackHand(List<Card> hand) {
 //		super(hand);
-		this.cards = hand;
+		this.hand = hand;
 	}
 //Checks the values of each player
 	public boolean isBlackjack() {
@@ -23,16 +21,14 @@ public class BlackJackHand extends Hand {
 	}
 //Used to get another card when a player hits
 	public void drawCard(List<Card>hand) {
-		hand.add(hand.get(0));
+		hand.add(hand.remove(getHandValue()));
 	}
-
 
 	@Override
 	public int getHandValue() {
 		int sumOfCards=0;
-		int aceValue = 0;
 //	The person has an 8 and 6 in hand
-		for (Card card : cards) { 
+		for (Card card : hand) { 
 			sumOfCards += + card.getValue();
 //			if (card.getValue() == 11);
 //			aceValue++;
@@ -48,4 +44,6 @@ public class BlackJackHand extends Hand {
 	public boolean isBust() {
 		return false;
 	}
+
+	
 }

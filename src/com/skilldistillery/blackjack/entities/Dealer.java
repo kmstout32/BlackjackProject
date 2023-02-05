@@ -31,8 +31,8 @@ public class Dealer extends Player {
 	public void showOneCard() {
 		Card card;
 
-		for (int i = 1; i < this.hand.cards.size(); i++) {
-			card = this.hand.cards.get(i);
+		for (int i = 1; i < this.hand.hand.size(); i++) {
+			card = this.hand.hand.get(i);
 //	The two lines below are identical
 //			card.getValue();
 //			hand.cards.get(i).getValue();
@@ -42,22 +42,15 @@ public class Dealer extends Player {
 		}
 	}
 
-	public void dealCard(Player player) {
-		Card card = deck.dealCard();
-		player.hit();
-	}
-
 	public void showHand() {
 		System.out.println(hand);
 		System.out.println(hand.getHandValue());
-		
 	}
 
-//Dealer must hit
-//	public void hit() {
-//			cards.add(deck.dealCard());
-//
-//	}
+//Dealer must hit if value is under 17
+	public static void hit(Deck deck) {
+		
+	}
 //Dealer must stay
 
 }

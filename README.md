@@ -7,8 +7,6 @@ This project simulates a blackjack game using the java functional command line, 
 
 As you can see, I needed to abstract attributes from other classes into the BlackjackApp class to invoke behaviors. For example, I had to instantiate the dealer and player classes to have them perform a particular behavior at different times throughout the program. 
 
-
-
 #Technologies Used
 Java, eclipse, OOP
 

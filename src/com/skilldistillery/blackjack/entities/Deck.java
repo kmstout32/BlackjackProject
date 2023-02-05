@@ -57,7 +57,9 @@ public class Deck {
 	}
 //a card that is dealt from deck
 	public Card takeCard() {
-		return cardsODeck.get(0);
+		Card card = new Card();
+		cardsODeck.remove(0);
+		return card;//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	}
 	
 
