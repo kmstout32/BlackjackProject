@@ -77,20 +77,31 @@ public class BlackjackApp {
 
 		} while (!userChoice.equalsIgnoreCase("Hit") && !userChoice.equalsIgnoreCase("Stay"));
 		if (userChoice.equalsIgnoreCase("Hit")) {
-			dealer.dealCard(player);
-		} else {
+			player.getsACard(card);
+		} else { //if stay the dealer will hit if card val is <17
 			System.out.println(" ");
-			System.out.println("Dealer's card's ");
-			dealer.showHand();
 			evaluateCards();
 		}
+		
 
 	}
+	public void evalDealerCards() {
+			System.out.println(" Dealer Hits");
+			
+			
+		}
+	
 
 	public void evaluateCards() {
+//			then the dealer will hit 
+		
+		System.out.println("Dealer's card's ");
+		dealer.showHand();
 //		assigned each players cardValue sum to a local variable & scope purposes
 		int playerScore = player.getHand().getHandValue();
 		int dealerScore =  dealer.getHand().getHandValue();
+		if (dealerScore < 17) {
+		}
 		System.out.println("************************");
 		System.out.println("* Your Score-> " + playerScore);
 		System.out.println("* Dealer's Score->" + dealerScore);
@@ -104,6 +115,8 @@ public class BlackjackApp {
 			System.out.println("YOU LOSE BOOBOO!");
 		}else if (dealerScore > 21) {
 			System.out.println("Dealer Busted...YOU WIN!");
+		}else if (dealerScore == playerScore) {
+			System.out.println("It's a tie");
 			
 		}
 			

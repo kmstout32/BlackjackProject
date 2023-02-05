@@ -54,8 +54,9 @@ public class Dealer extends Player {
 	}
 
 //Dealer must hit
-//	public static void hit() {
-//		
+//	public void hit() {
+//			cards.add(deck.dealCard());
+//
 //	}
 //Dealer must stay
 

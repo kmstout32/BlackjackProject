@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlackJackHand extends Hand {
-//	
+	private Dealer dealer;
+	private Player player;
+	
 //no arg ctor - someone else might need it for a different purpose
 	public BlackJackHand() {
 		super();
@@ -20,8 +22,8 @@ public class BlackJackHand extends Hand {
 			
 	}
 //Used to get another card when a player hits
-	public Card drawCard() {
-		return cards.remove(0);
+	public void drawCard(List<Card>hand) {
+		hand.add(hand.get(0));
 	}
 
 

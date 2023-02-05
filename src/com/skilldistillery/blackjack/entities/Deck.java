@@ -55,7 +55,10 @@ public class Deck {
 		Collections.shuffle(cardsODeck);
 		
 	}
-
+//a card that is dealt from deck
+	public Card takeCard() {
+		return cardsODeck.get(0);
+	}
 	
 
 }

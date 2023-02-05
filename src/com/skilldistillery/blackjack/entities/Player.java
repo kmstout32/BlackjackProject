@@ -33,9 +33,7 @@ public class Player extends Person{
 		
 		}
 	}
-	public void hit() {
-		bjHand.drawCard();
-	}
+	
 
 	public String getName() {
 		return name;
@@ -58,9 +56,8 @@ public class Player extends Person{
 	
 	//behaviors of the player
 
-	public void getsAcard(Card card) {
-		
-		
+	public void getsACard(Card card) {
+		this.bjHand.drawCard(null);
 	}
 		
 
