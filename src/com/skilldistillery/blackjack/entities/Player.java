@@ -1,6 +1,5 @@
 package com.skilldistillery.blackjack.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Player extends Person{
@@ -8,6 +7,7 @@ public class Player extends Person{
 //	each player has a name and a hand of cards
 	private String name;
 	protected Hand hand;
+	
 	public Player() {
 		
 	}
@@ -33,6 +33,9 @@ public class Player extends Person{
 		
 		}
 	}
+	public void hit() {
+		bjHand.drawCard();
+	}
 
 	public String getName() {
 		return name;
@@ -55,16 +58,13 @@ public class Player extends Person{
 	
 	//behaviors of the player
 
-	public void hit() {
-			System.out.println("Made it!");
-//			
-		}
-//	}
-////	Make the decision
-	public void decision() {
-		System.out.println();
-		System.out.println("");
-	
-	
+	public void getsAcard(Card card) {
+		
+		
 	}
+		
+
+	
+	
+	
 }

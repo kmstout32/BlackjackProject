@@ -38,4 +38,5 @@ public abstract class Hand {
 		return 0;
 	}
 	
+	
 }

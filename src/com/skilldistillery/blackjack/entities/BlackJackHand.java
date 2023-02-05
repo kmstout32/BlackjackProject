@@ -20,7 +20,9 @@ public class BlackJackHand extends Hand {
 			
 	}
 //Used to get another card when a player hits
-	
+	public Card drawCard() {
+		return cards.remove(0);
+	}
 
 
 	@Override
@@ -41,5 +43,7 @@ public class BlackJackHand extends Hand {
 //		}
 		return sumOfCards;
 	}
-
+	public boolean isBust() {
+		return false;
+	}
 }

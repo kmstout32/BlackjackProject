@@ -36,6 +36,7 @@ public class Deck {
 	public List<Card> getCardsODeck() {
 		return cardsODeck;
 	}
+	
 
 	public void setCardsODeck(List<Card> cardsODeck) {
 		this.cardsODeck = cardsODeck;

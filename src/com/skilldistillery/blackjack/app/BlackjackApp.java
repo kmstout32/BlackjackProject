@@ -41,21 +41,22 @@ public class BlackjackApp {
 	}
 
 	public void diplayPlayerCards() {
-		
+
 		System.out.println("****************************************************************");
 		System.out.println("Hello " + player.getName() + ", Welcome to the Blackjack Terminal!");
 		System.out.println("****************************************************************");
-		System.out.println(player.getName()+"'s cards" );
+		System.out.println(player.getName() + "'s cards");
 		player.setHand(new BlackJackHand(dealer.dealCards()));
 		player.printPlayerHand();
 		System.out.println(player.getHand().getHandValue());
 		displayDealerCards();
 	}
+
 	public void displayDealerCards() {
-		
+
 		System.out.println("");
-		System.out.println(dealer.getName()+"'s cards" );
-	//get hand converts the hand to integer
+		System.out.println(dealer.getName() + "'s cards");
+		// get hand converts the hand to integer
 		dealer.setHand(new BlackJackHand(dealer.dealCards()));
 		dealer.showOneCard();
 		interactWithPlayer(player.getHand().getHandValue(), sc);
@@ -63,28 +64,48 @@ public class BlackjackApp {
 
 	public void interactWithPlayer(int cardVal, Scanner choice) {
 
-		if (cardVal < 10) {
+		if (cardVal < 10 == true) {
 			System.out.println("Would you like to hit?");
 		} else if (cardVal > 13 && cardVal < 21) {
 			System.out.println("Would you like to 1) hit or 2) stay");
-		} else if (cardVal == 21 ) {
+		} else if (cardVal == 21) {
 			System.out.println("Blackjack! Nice job!");
 		}
 		String userChoice = " ";
 		do {
 			userChoice = choice.next();
-			
-			}while(!userChoice.equalsIgnoreCase("Hit") &&!userChoice.equalsIgnoreCase("Stay"));
-		if(userChoice.equalsIgnoreCase("Hit")) {
-			player.hit();
+
+		} while (!userChoice.equalsIgnoreCase("Hit") && !userChoice.equalsIgnoreCase("Stay"));
+		if (userChoice.equalsIgnoreCase("Hit")) {
+			dealer.dealCard(player);
+		} else {
+			System.out.println(" ");
+			System.out.println("Dealer's card's ");
+			dealer.showHand();
+			evaluateCards();
 		}
-	
-		
-		
+
 	}
 
-	private void String(Scanner input) {
-		// TODO Auto-generated method stub
+	public void evaluateCards() {
+//		assigned each players cardValue sum to a local variable & scope purposes
+		int playerScore = player.getHand().getHandValue();
+		int dealerScore =  dealer.getHand().getHandValue();
+		System.out.println("************************");
+		System.out.println("* Your Score-> " + playerScore);
+		System.out.println("* Dealer's Score->" + dealerScore);
+		System.out.println("************************");
 		
+		if (playerScore > dealerScore) {
+			System.out.println("YOU WON! GO GET THAT MONEY HONEY!!");
+		} else if (playerScore > 21){
+			System.out.println("BUSTED!");
+		} else if (dealerScore > playerScore) {
+			System.out.println("YOU LOSE BOOBOO!");
+		}else if (dealerScore > 21) {
+			System.out.println("Dealer Busted...YOU WIN!");
+			
+		}
+			
 	}
 }
