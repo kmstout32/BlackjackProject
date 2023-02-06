@@ -17,10 +17,8 @@ public abstract class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void hit(Deck deck) {
-		System.out.println("Im in the dealer class");
-
-	}
+	
+	
 
 
 

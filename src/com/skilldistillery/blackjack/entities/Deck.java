@@ -45,7 +45,7 @@ public class Deck {
 	public Card dealCard() {
 		return cardsODeck.remove(0);
 	}
-//Checks how many cards are left in the dec
+//Checks how many cards are left in the deck
 	public int checkDeckSize() {
 	
 		return cardsODeck.size();

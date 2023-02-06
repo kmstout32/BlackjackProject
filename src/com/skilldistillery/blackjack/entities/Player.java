@@ -34,8 +34,8 @@ public class Player extends Person{
 		
 		}
 	}
-	public void addCard(BlackJackHand hand) {
-
+	public void addCard(Card card) {
+		hand.addCard(card);
 	}
 
 	public String getName() {

@@ -76,11 +76,13 @@ public class BlackjackApp {
 		}
 		String userChoice = " ";
 		do {
-			userChoice = choice.next();
-
+			userChoice = choice.nextLine();
+			System.out.println(userChoice);
 		} while (!userChoice.equalsIgnoreCase("Hit") && !userChoice.equalsIgnoreCase("Stay"));
 		if (userChoice.equalsIgnoreCase("Hit")) {
-			player.hit(deck);
+			dealer.dealHitCard(player);
+			player.printPlayerHand();
+			
 		} else { // if stay the dealer will hit if card val is <17
 			System.out.println(" ");
 			evaluateCards();

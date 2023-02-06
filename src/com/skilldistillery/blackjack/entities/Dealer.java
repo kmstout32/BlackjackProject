@@ -26,18 +26,18 @@ public class Dealer extends Player {
 		}
 		return cards;
 	}
-
+	public void dealHitCard(Player player) {
+		Card card = deck.dealCard();
+		player.addCard(card);
+		
+		
+	}
 //	this toString - hide dealers first card
 	public void showOneCard() {
 		Card card;
 
 		for (int i = 1; i < this.hand.hand.size(); i++) {
 			card = this.hand.hand.get(i);
-//	The two lines below are identical
-//			card.getValue();
-//			hand.cards.get(i).getValue();
-//	"Card: " + getRank() + getSuit() + " || " +rank.getValue() 
-//			this is what happens when I call card ^^^
 			System.out.println(card);
 		}
 	}
@@ -50,7 +50,7 @@ public class Dealer extends Player {
 	
 //Dealer must hit if value is under 17
 	public void hit(Deck deck) {
-		Card hitCard =  dealCard();
+		
 	
 	}
 //Dealer must stay
